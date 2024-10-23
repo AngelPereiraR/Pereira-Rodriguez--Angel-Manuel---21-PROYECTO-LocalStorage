@@ -10,6 +10,10 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
 formulario.addEventListener("click", (e) => {
   e.preventDefault()
+  if (e.target.previousElementSibling.value.trim() === "") {
+    alert("No puedes enviar un tweet vacío.")
+    return
+  }
   mensajes.push(e.target.previousElementSibling.value)
   e.target.previousElementSibling.value = ""
   localStorage.setItem("mensajes", JSON.stringify(mensajes))
